@@ -13,5 +13,6 @@ No valor de **option**, as opções válidas são:
 - realce -> aplica filtro passa-alta
 - equalizado -> aplica a equalização do histograma da imagem
 - cartoon -> aplica o filtro para tornar imagem como cartoon
+- mosaico -> aplica o mosaico do vídeo
 
 Caso nenhuma opção informada seja válida, nenhum filtro será aplicado

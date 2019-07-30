@@ -47,5 +47,30 @@ def aplica_filtro(frame, cond):
 		color = cv2.bilateralFilter(frame, 9, 300, 300)
 		return cv2.bitwise_and(color, color, mask=edges)
 
+	elif cond == 'mosaico':
+		img1 = frame[0:120, 0:160, :]
+		img2 = frame[0:120, 160:320, :]
+		img3 = frame[0:120, 320:480, :]
+		img4 = frame[0:120, 480:640, :]
+		img5 = frame[120:240, 0:160, :]
+		img6 = frame[120:240, 160:320, :]
+		img7 = frame[120:240, 320:480, :]
+		img8 = frame[120:240, 480:640, :]
+		img9 = frame[240:360, 0:160, :]
+		img10 = frame[240:360, 160:320, :]
+		img11 = frame[240:360, 320:480, :]
+		img12 = frame[240:360, 480:640, :]
+		img13 = frame[360:480, 0:160, :]
+		img14 = frame[360:480, 160:320, :]
+		img15 = frame[360:480, 320:480, :]
+		img16 = frame[360:480, 480:640, :]
+		
+		coluna1 = np.concatenate((img6, img8, img12, img4))
+		coluna2 = np.concatenate((img11, img16, img14, img15))
+		coluna3 = np.concatenate((img13, img1, img2, img10))
+		coluna4 = np.concatenate((img3, img9, img7, img5))
+
+		return np.column_stack((coluna1, coluna2, coluna3, coluna4))
+
 	else:
 		return frame
